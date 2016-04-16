@@ -70,6 +70,12 @@ describe('LinkValue', () => {
       r.onChange(9)
       expect(c).to.have.been.calledWith({a: 9, b: {c: 2, d: 3}})
     })
+
+    it('should unbox onChange values from synthetic events', () => {
+      let r = makeLink(v, c, 'a')
+      r.onChange({target: {value: 9}})
+      expect(c).to.have.been.calledWith({a: 9, b: {c: 2, d: 3}})
+    })
   })
 
   describe('makeLinkMerge', () => {
@@ -83,10 +89,16 @@ describe('LinkValue', () => {
       expect(r.onChange).to.be.a('function')
     })
 
-    it('should return a value and onChange when not given a path', () => {
-      let r = makeLinkMerge(v, c)
-      expect(r.value).to.eql(v)
-      expect(r.onChange).to.be.a('function')
+    it('should propagate events to supplied onChange when given a path', () => {
+      let r = makeLinkMerge(v, c, 'b')
+      r.onChange({c: 9})
+      expect(c).to.have.been.calledWith({a: 1, b: {c: 9, d: 3}})
+    })
+
+    it('should unbox onChange values from synthetic events when given a path', () => {
+      let r = makeLinkMerge(v, c, 'b')
+      r.onChange({target: {value: {c: 9}}})
+      expect(c).to.have.been.calledWith({a: 1, b: {c: 9, d: 3}})
     })
 
     it('should propagate events to supplied onChange when given a path', () => {
@@ -95,9 +107,21 @@ describe('LinkValue', () => {
       expect(c).to.have.been.calledWith({a: 1, b: {c: 9, d: 3}})
     })
 
+    it('should return a value and onChange when not given a path', () => {
+      let r = makeLinkMerge(v, c)
+      expect(r.value).to.eql(v)
+      expect(r.onChange).to.be.a('function')
+    })
+
     it('should propagate events to supplied onChange when not given a path', () => {
       let r = makeLinkMerge(v, c)
       r.onChange({b: 9})
+      expect(c).to.have.been.calledWith({a: 1, b: 9})
+    })
+
+    it('should unbox onChange values from synthetic events when given a path', () => {
+      let r = makeLinkMerge(v, c)
+      r.onChange({target: {value: {b: 9}}})
       expect(c).to.have.been.calledWith({a: 1, b: 9})
     })
   })
