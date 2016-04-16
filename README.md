@@ -1,5 +1,8 @@
 # LinkValue
 
+[![Build Status](https://travis-ci.org/drewschrauf/link-value.svg?branch=master)](https://travis-ci.org/drewschrauf/link-value)
+[![Coverage Status](https://coveralls.io/repos/github/drewschrauf/link-value/badge.svg?branch=master)](https://coveralls.io/github/drewschrauf/link-value?branch=master)
+
 LinkValue is a tiny library designed for making complex forms in React easier to build. It allows you to take a large, complicated state object and create `value`/`onChange` pairs for smaller chunks of that object. Passing these pairs down to child components allows you to break your form up into small, manageable pieces that remain decoupled from the larger form.
 
 ## Example
