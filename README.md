@@ -7,7 +7,7 @@ LinkValue is a tiny library designed for making complex forms in React easier to
 
 ## Example
 
-Lets solve the classic problem of making a form to edit items in a list of values. Our container holds the state and renders a Form taking a `value` (the list of books) and an `onChange` listener.
+Let's solve the classic problem of making a form to edit items in a list of values. Our container holds the state and renders a Form taking a `value` (the list of books) and an `onChange` listener.
 
 ```javascript
 class Container extends Component {
