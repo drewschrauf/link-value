@@ -9,10 +9,13 @@
     "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -r jsdom-global/register --compilers js:babel-register --recursive test",
     "watch": "mocha -w -r jsdom-global/register --compilers js:babel-register --recursive test",
     "lint": "eslint src",
-    "ci": "npm run lint && npm run cover"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "ci": "npm run lint && npm run cover && npm run coveralls"
   },
   "keywords": [
-    "react", "forms", "ValueLink"
+    "react",
+    "forms",
+    "ValueLink"
   ],
   "author": "Drew Schrauf",
   "license": "ISC",
@@ -27,6 +30,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "eslint": "^2.7.0",
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^8.3.1",
