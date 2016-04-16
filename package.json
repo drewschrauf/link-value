@@ -17,7 +17,8 @@
     "forms",
     "ValueLink"
   ],
-  "author": "Drew Schrauf",
+  "author": "Drew Schrauf <andrew.schrauf@gmail.com>",
+  "repository": "drewschrauf/link-value",
   "license": "ISC",
   "peerDependecies": {
     "react": "^0.14.0 || ^15.0.0-0"

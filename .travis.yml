@@ -2,3 +2,12 @@ language: node_js
 node_js:
 - '5'
 script: npm run ci
+before_deploy: npm run build
+deploy:
+  provider: npm
+  email: andrew.schrauf@gmail.com
+  api_key:
+    secure: JP8C6kqHa3JHtrHhiafUNnZhOLyKYdiknh9K2Xo6/lIofeOjaWdUwnCPGdS2j9PdMUuyRSV1HoTzwwNqOpjues7UmmdRqyCkB8XHNyUfairFXZsBEYc0Y2oSEhy/NXxfGzfelEEumFOhUVM+TeRtB01yTzHlO7MJQw8UlORJ0R1rWMtO6bfm+AC6nZqOIW8fK4Qs4w3mEEfiL83Zr+ecxV3xCGJ7GyTH+5+Ttry/NQl/8GhgE6/pHf0IvudG1RDKooO/WyBxrata6wx0rQU7ODeO9bxg3wnteqfKVz2MadqSDY19tFgyLvNTMgQoxfrdSbTZrHlhI5FTRnDVtOUVdra2beCAqh4DcAaogHfbSxbL8Qwc2S14tj1MVV/yWtg/sp04mjFubhs7cN4lC9plDP7KZS3TdcR7HsK1P3sGhwdu/0FMNfTrNH/S+tMHyjPqgqtdBrw8fFj65jtByTsa0zZ9IczFg6O6IIGxAXz3iJL9umH79WONO96PpZ1Rf9CAqkXZh4bdkUM7w7r7EiP8hF+ZiSoNLeixndmAm+7WgL3jNnF3K+s14x9z7VQ1MjxHOSKUl0id0Ul7mQDdDUO46N6YhggVcT6F5O+zg3TG4qdman85syzqL+HMkW3yscSrBBy59SV2aEJgvxQUuQN6Do2Z/5WZedgdciBfNJAQ17w=
+  on:
+    tags: true
+    repo: drewschrauf/link-value
