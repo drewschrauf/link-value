@@ -7,7 +7,7 @@ LinkValue is a tiny library designed for making complex forms in React easier to
 
 ## Example
 
-Let's solve the classic problem of making a form to edit items in a list of values. Our container holds the state and renders a Form taking a `value` (the list of books) and an `onChange` listener.
+Let's solve the classic problem of making a form to edit items in a list of values. Our container holds the state and renders a Form taking a `value` (a list of books) and an `onChange` listener.
 
 ```javascript
 class Container extends Component {
@@ -77,7 +77,7 @@ Again, we've used `makeLink` to make `value`/`onChange` pairs for individual fie
 
 ## API
 
-The primary way to use LinkValue is through the decorator. This adds two extra properties to your component, `makeLink` and `makeLinkMerge`, both taking a path. These are just the following functions with the `value` and `onChange` bound to the `value` and `onChange` provided to the component. The functions are also available with `import { makeLink, makeLinkMerge} from 'link-value'`.
+The primary way to use LinkValue is through the decorator. This adds two extra properties to your component, `makeLink` and `makeLinkMerge`, both taking a path. These are just the following functions with the `value` and `onChange` bound to the `value` and `onChange` provided to the component. The functions are also available with `import { makeLink, makeLinkMerge } from 'link-value'`.
 
 ### makeLink(value, onChange, ...path)
 
