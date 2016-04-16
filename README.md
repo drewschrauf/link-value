@@ -114,7 +114,7 @@ link.onChange({high: 30}) // just update the high, logs...
 //]
 ```
 
-If we tried to use `makeLink` here, the 'Sydney' object would have been completely replaced by an object only containing the 'high'. Useing `makeLinkMerge` updated the 'high' on the existing object.
+If we tried to use `makeLink` here, the 'Sydney' object would have been completely replaced by an object only containing the 'high'. Using `makeLinkMerge` updated the 'high' on the existing object.
 
 ## Contribute
 
