@@ -2,7 +2,7 @@ import React from 'react'
 import chai, { expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
-import LinkValue, { makeLink, makeLinkMerge, makeCheckedLink } from '../src/LinkValue'
+import LinkValue, { makeLink, makeMergedLink, makeCheckedLink } from '../src/LinkValue'
 import TestUtils from 'react-addons-test-utils'
 
 chai.use(sinonChai)
@@ -45,7 +45,7 @@ describe('LinkValue', () => {
       let r = TestUtils.renderIntoDocument(TestComponent(<E onChange={c} path={['b', 'c']}/>))
       let p = TestUtils.findRenderedComponentWithType(r, PropChecker)
       expect(p.props.makeLink).to.be.undefined
-      expect(p.props.makeLinkMerge).to.be.undefined
+      expect(p.props.makeMergedLink).to.be.undefined
       expect(p.props.makeCheckedLink).to.be.undefined
     })
 
@@ -53,7 +53,7 @@ describe('LinkValue', () => {
       let r = TestUtils.renderIntoDocument(TestComponent(<E value={v} path={['b', 'c']}/>))
       let p = TestUtils.findRenderedComponentWithType(r, PropChecker)
       expect(p.props.makeLink).to.be.undefined
-      expect(p.props.makeLinkMerge).to.be.undefined
+      expect(p.props.makeMergedLink).to.be.undefined
       expect(p.props.makeCheckedLink).to.be.undefined
     })
   })
@@ -128,26 +128,26 @@ describe('LinkValue', () => {
     })
   })
 
-  describe('makeLinkMerge', () => {
+  describe('makeMergedLink', () => {
     it('should be a function', () => {
-      expect(makeLinkMerge).to.be.a('function')
+      expect(makeMergedLink).to.be.a('function')
     })
 
     describe('with path', () => {
       it('should return a value and onChange when given a path', () => {
-        let r = makeLinkMerge(v, c, 'a')
+        let r = makeMergedLink(v, c, 'a')
         expect(r.value).to.equal(1)
         expect(r.onChange).to.be.a('function')
       })
 
       it('should propagate events to supplied onChange when given a path', () => {
-        let r = makeLinkMerge(v, c, 'b')
+        let r = makeMergedLink(v, c, 'b')
         r.onChange({c: 9})
         expect(c).to.have.been.calledWith({a: 1, b: {c: 9, d: 3}})
       })
 
       it('should unbox onChange values from synthetic events when given a path', () => {
-        let r = makeLinkMerge(v, c, 'b')
+        let r = makeMergedLink(v, c, 'b')
         r.onChange({target: {value: {c: 9}}})
         expect(c).to.have.been.calledWith({a: 1, b: {c: 9, d: 3}})
       })
@@ -155,19 +155,19 @@ describe('LinkValue', () => {
 
     describe('without path', () => {
       it('should return a value and onChange when not given a path', () => {
-        let r = makeLinkMerge(v, c)
+        let r = makeMergedLink(v, c)
         expect(r.value).to.eql(v)
         expect(r.onChange).to.be.a('function')
       })
 
       it('should propagate events to supplied onChange when not given a path', () => {
-        let r = makeLinkMerge(v, c)
+        let r = makeMergedLink(v, c)
         r.onChange({b: 9})
         expect(c).to.have.been.calledWith({a: 1, b: 9})
       })
 
       it('should unbox onChange values from synthetic events when given a path', () => {
-        let r = makeLinkMerge(v, c)
+        let r = makeMergedLink(v, c)
         r.onChange({target: {value: {b: 9}}})
         expect(c).to.have.been.calledWith({a: 1, b: 9})
       })
