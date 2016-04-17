@@ -117,6 +117,10 @@ link.onChange({high: 30}) // just update the high, logs...
 
 If we tried to use `makeLink` here, the 'Sydney' object would have been completely replaced by an object only containing the 'high'. Using `makeMergedLink` updated the 'high' on the existing object.
 
+### makeCheckedLink(value, onChange, ...path)
+
+Checkboxes are handled a little differently to other inputs in React. For this reason, `makeCheckedLink` is provided alongside `makeLink` to deal with these slight differences. Instead of a `value`/`onChange` pair being produced, a `checked`/`onChange` pair is produced instead.
+
 ## Contribute
 
 Pull requests welcome. Please make sure tests pass with:
