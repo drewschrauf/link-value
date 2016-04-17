@@ -8,7 +8,7 @@
     "test": "mocha -r jsdom-global/register --compilers js:babel-register --recursive test",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -r jsdom-global/register --compilers js:babel-register --recursive test",
     "watch": "mocha -w -r jsdom-global/register --compilers js:babel-register --recursive test",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "ci": "npm run lint && npm run cover && npm run coveralls"
   },
