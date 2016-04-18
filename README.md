@@ -78,7 +78,7 @@ Again, we've used `makeLink` to make `value`/`onChange` pairs for individual fie
 
 ## API
 
-The primary way to use LinkValue is through the decorator. This adds two extra properties to your component, `makeLink` and `makeMergeLink`, both taking a path. These are just the following functions with the `value` and `onChange` bound to the `value` and `onChange` provided to the component. The functions are also available with `import { makeLink, makeMergeLink, makeCheckedLink } from 'link-value'`.
+The primary way to use LinkValue is through the decorator. This adds three extra properties to your component, `makeLink`, `makeMergeLink` and `makeCheckedLink`, each taking a path. These are just the following functions with the `value` and `onChange` bound to the `value` and `onChange` provided to the component. The functions are also available with `import { makeLink, makeMergeLink, makeCheckedLink } from 'link-value'`.
 
 ### makeLink(value, onChange, ...path)
 
