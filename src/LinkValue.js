@@ -29,7 +29,7 @@ export function makeLink (value, onChange, ...path) {
 }
 
 // merge the new value into the existing value
-export function makeMergedLink (value, onChange, ...path) {
+export function makeMergeLink (value, onChange, ...path) {
   if (!path.length) {
     return {
       value: value,
@@ -59,7 +59,7 @@ export default (Component) => {
 
     const additionalProps = addProps ? {
       makeLink: makeLink.bind(null, props.value, props.onChange),
-      makeMergedLink: makeMergedLink.bind(null, props.value, props.onChange),
+      makeMergeLink: makeMergeLink.bind(null, props.value, props.onChange),
       makeCheckedLink: makeCheckedLink.bind(null, props.value, props.onChange)
     } : {}
     return <Component {...additionalProps} {...props}/>

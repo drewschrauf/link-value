@@ -78,7 +78,7 @@ Again, we've used `makeLink` to make `value`/`onChange` pairs for individual fie
 
 ## API
 
-The primary way to use LinkValue is through the decorator. This adds two extra properties to your component, `makeLink` and `makeMergedLink`, both taking a path. These are just the following functions with the `value` and `onChange` bound to the `value` and `onChange` provided to the component. The functions are also available with `import { makeLink, makeMergedLink } from 'link-value'`.
+The primary way to use LinkValue is through the decorator. This adds two extra properties to your component, `makeLink` and `makeMergeLink`, both taking a path. These are just the following functions with the `value` and `onChange` bound to the `value` and `onChange` provided to the component. The functions are also available with `import { makeLink, makeMergeLink, makeCheckedLink } from 'link-value'`.
 
 ### makeLink(value, onChange, ...path)
 
@@ -93,9 +93,9 @@ console.log(link.value) // logs 'Old Title'
 link.onChange('New Title') //logs [{title: 'New Title', author: 'Old Author'}, ...]
 ```
 
-### makeMergedLink(value, onChange, ...path)
+### makeMergeLink(value, onChange, ...path)
 
-Sometimes you don't want the value passed to the `onChange` to completely replace the contents in the `value`. In these cases, you want to use `makeMergedLink` to add the properties to the object instead.
+Sometimes you don't want the value passed to the `onChange` to completely replace the contents in the `value`. In these cases, you want to use `makeMergeLink` to add the properties to the object instead.
 
 ```javascript
 const weather = [
@@ -105,7 +105,7 @@ const weather = [
 ]
 const logChange = newVal => console.log(newVal)
 
-const link = makeMergedLink(value, onChange, 1)
+const link = makeMergeLink(value, onChange, 1)
 console.log(link.value) // logs {city: 'Sydney', high: 24, low: 15}
 link.onChange({high: 30}) // just update the high, logs...
 //[
@@ -115,7 +115,7 @@ link.onChange({high: 30}) // just update the high, logs...
 //]
 ```
 
-If we tried to use `makeLink` here, the 'Sydney' object would have been completely replaced by an object only containing the 'high'. Using `makeMergedLink` updated the 'high' on the existing object.
+If we tried to use `makeLink` here, the 'Sydney' object would have been completely replaced by an object only containing the 'high'. Using `makeMergeLink` updated the 'high' on the existing object.
 
 ### makeCheckedLink(value, onChange, ...path)
 
