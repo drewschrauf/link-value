@@ -1,6 +1,6 @@
 {
   "name": "link-value",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "React forms made simple",
   "main": "lib/LinkValue.js",
   "scripts": {
