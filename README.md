@@ -105,7 +105,7 @@ const weather = [
 ]
 const logChange = newVal => console.log(newVal)
 
-const link = makeMergeLink(value, onChange, 1)
+const link = makeMergeLink(value, logChange, 1)
 console.log(link.value) // logs {city: 'Sydney', high: 24, low: 15}
 link.onChange({high: 30}) // just update the high, logs...
 //[
