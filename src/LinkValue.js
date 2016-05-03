@@ -55,12 +55,13 @@ export function makeCheckedLink (value, onChange, ...path) {
 
 export default (Component) => {
   const LinkValue = (props) => {
-    const addProps = props.value != null && !!props.onChange
+    const { value, onChange } = props
+    const addProps = value != null && !!onChange
 
     const additionalProps = addProps ? {
-      makeLink: makeLink.bind(null, props.value, props.onChange),
-      makeMergeLink: makeMergeLink.bind(null, props.value, props.onChange),
-      makeCheckedLink: makeCheckedLink.bind(null, props.value, props.onChange)
+      makeLink: makeLink.bind(null, value, onChange),
+      makeMergeLink: makeMergeLink.bind(null, value, onChange),
+      makeCheckedLink: makeCheckedLink.bind(null, value, onChange)
     } : {}
     return <Component {...additionalProps} {...props}/>
   }
