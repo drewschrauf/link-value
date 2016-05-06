@@ -2,7 +2,7 @@
   "name": "link-value",
   "version": "0.1.1",
   "description": "React forms made simple",
-  "main": "lib/LinkValue.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel -d lib src",
     "test": "mocha -r jsdom-global/register --compilers js:babel-register --recursive test",
