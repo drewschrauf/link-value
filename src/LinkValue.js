@@ -11,7 +11,7 @@ export default (Component) => {
       makeMergeLink: makeMergeLink.bind(null, value, onChange),
       makeCheckedLink: makeCheckedLink.bind(null, value, onChange)
     } : {}
-    return <Component {...additionalProps} {...props}/>
+    return <Component {...additionalProps} {...props} />
   }
   LinkValue.propTypes = {
     value: React.PropTypes.any,
