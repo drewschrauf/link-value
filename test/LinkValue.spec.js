@@ -64,20 +64,22 @@ describe('LinkValue', () => {
       expect(child).to.not.have.prop('makeCheckedLink');
     });
 
-    it('should bind value and onChange to makeLink function', () => {
-      const root = mount(<TestComponent value={{ a: 'test' }} onChange={c} />);
-      const child = root.find('div').first();
-      const mockMakeLink = LinkValueModule.__stubs__['./LinkBuilders'].makeLink;
-      child.prop('makeLink')('a');
+    ['makeLink', 'makeMergeLink', 'makeCheckedLink'].forEach(type => {
+      it(`should bind value and onChange to ${type} function`, () => {
+        const root = mount(<TestComponent value={{ a: 'test' }} onChange={c} />);
+        const child = root.find('div').first();
+        const mockMakeLink = LinkValueModule.__stubs__['./LinkBuilders'][type];
+        child.prop(type)('a');
 
-      // makeLink should be bound
-      expect(mockMakeLink.getCall(0).args[0]).to.eql({ a: 'test' });
-      expect(mockMakeLink.getCall(0).args[1]).to.be.a('function');
-      expect(mockMakeLink.getCall(0).args[2]).to.be.equal('a');
+        // makeLink should be bound
+        expect(mockMakeLink.getCall(0).args[0]).to.eql({ a: 'test' });
+        expect(mockMakeLink.getCall(0).args[1]).to.be.a('function');
+        expect(mockMakeLink.getCall(0).args[2]).to.be.equal('a');
 
-      // the passed function should be our original function
-      mockMakeLink.getCall(0).args[1]('new');
-      expect(c).to.have.been.calledWith('new');
+        // the passed function should be our original function
+        mockMakeLink.getCall(0).args[1]('new');
+        expect(c).to.have.been.calledWith('new');
+      });
     });
   });
 });
