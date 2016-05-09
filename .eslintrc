@@ -1,6 +1,9 @@
 {
-  "extends": ["standard", "standard-react"],
+  "extends": ["airbnb"],
   "env": {
     "mocha": true
+  },
+  "rules": {
+    "no-underscore-dangle": 0
   }
 }
