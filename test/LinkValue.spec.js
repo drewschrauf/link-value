@@ -40,6 +40,12 @@ describe('LinkValue', () => {
       expect(child.length).to.equal(1);
     });
 
+    it('should pass original props when not passing utilities', () => {
+      const root = mount(<TestComponent test="test" />);
+      const child = root.find('div');
+      expect(child.prop('test')).to.equal('test');
+    });
+
     it('should provide utility functions if value and onChange are present', () => {
       const root = mount(<TestComponent value="test" onChange={c} />);
       const child = root.find('div').first();
