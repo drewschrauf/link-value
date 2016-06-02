@@ -18,7 +18,7 @@ class Container extends Component {
       books: [
         {title: 'The Very Hungry Caterpillar', author: 'Eric Carle'},
         {title: 'Possum Magic', author: 'Mem Fox'},
-        ... // ...etc
+        // ...etc
       ]
     }
   }
@@ -47,7 +47,7 @@ class Form extends Component {
   render() {
     return (
       <ul>
-        {this.props.values.map((book, i) => (
+        {this.props.value.map((book, i) => (
           <li><BookForm {...this.props.makeLink(i)} /></li>
         ))}
       </ul>
