@@ -23,7 +23,7 @@ describe('LinkValue', () => {
     linkValue = LinkValueModule.default;
 
     TestComponent = linkValue(props =>
-      <div {...props}></div>
+      <div {...props} />
     );
 
     c = sinon.spy();

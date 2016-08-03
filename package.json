@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel -d lib src",
-    "test": "mocha -r jsdom-global/register --compilers js:babel-register --recursive test",
+    "test": "mocha -r jsdom-global/register --compilers js:babel-register --recursive",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -r jsdom-global/register --compilers js:babel-register --recursive test",
     "watch": "mocha -w -r jsdom-global/register --compilers js:babel-register --recursive test",
     "lint": "eslint src test",
@@ -21,36 +21,36 @@
   "repository": "drewschrauf/link-value",
   "license": "ISC",
   "peerDependecies": {
-    "react": "^0.14.0 || ^15.0.0-0"
+    "react": ">=0.14.0"
   },
   "devDependencies": {
     "automock": "drewschrauf/automock",
-    "babel-cli": "^6.7.5",
-    "babel-core": "^6.7.6",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-register": "^6.7.2",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.11.6",
     "chai": "^3.5.0",
-    "chai-enzyme": "^0.4.2",
+    "chai-enzyme": "^0.5.0",
     "cheerio": "^0.20.0",
-    "coveralls": "^2.11.9",
-    "enzyme": "^2.2.0",
-    "eslint": "^2.9.0",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.7.0",
-    "eslint-plugin-jsx-a11y": "^1.2.0",
-    "eslint-plugin-react": "^5.0.1",
+    "coveralls": "^2.11.12",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.0.0",
     "istanbul": "^1.0.0-alpha.2",
-    "jsdom": "^8.3.1",
-    "jsdom-global": "^1.7.0",
-    "mocha": "^2.4.5",
-    "react": "^15.0.1",
-    "react-addons-test-utils": "^15.0.1",
-    "react-dom": "^15.0.2",
-    "sinon": "^1.17.3",
+    "jsdom": "^9.4.1",
+    "jsdom-global": "^2.0.0",
+    "mocha": "^3.0.0",
+    "react": "^15.3.0",
+    "react-addons-test-utils": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
-    "lodash": "^4.11.1"
+    "lodash": "^4.14.1"
   }
 }
